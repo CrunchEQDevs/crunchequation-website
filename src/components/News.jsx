@@ -54,7 +54,7 @@ const News = () => {
               className="mySwiper"
             >
               {filteredPosts.map((news) => (
-                <SwiperSlide className='pb-6 w-full' key={news.id}>
+                <SwiperSlide className='pb-5 w-full' key={news.id}>
                   <CardNews
                     id={news.id}
                     image={images[news.id]}
