@@ -6,10 +6,12 @@ import { IoCloseOutline, IoChevronBack } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import routeMap from '../../utils/RouteMap';
 import MenuItems from './MenuItems';
+import { usePosts } from '../../utils/PostProvider';
 
 
 
 const Navbar = () => {
+  const { changeLanguage: changePostLanguage } = usePosts();
   const { i18n } = useTranslation();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +21,18 @@ const Navbar = () => {
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
   const mobileLanguageDropdownRef = useRef(null);
   const desktopLanguageDropdownRef = useRef(null);
-  const { setLanguage } = useTranslation();
+  //const { setLanguage } = useTranslation();
+
+  
+  const languages = [
+    { code: 'en', label: 'ENG', flag: 'https://cdn-icons-png.flaticon.com/256/555/555417.png' },
+    { code: 'pt', label: 'PT', flag: 'https://cdn-icons-png.flaticon.com/256/321/321256.png' },
+    { code: 'es', label: 'ES', flag: 'https://cdn-icons-png.flaticon.com/256/330/330557.png' },
+    { code: 'fr', label: 'FR', flag: 'https://cdn-icons-png.flaticon.com/256/330/330490.png' },
+    { code: 'de', label: 'DE', flag: 'https://cdn-icons-png.flaticon.com/256/330/330523.png' },
+    { code: 'it', label: 'IT', flag: 'https://cdn-icons-png.flaticon.com/256/10948/10948379.png' }
+  ];
+
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language");
@@ -68,56 +81,47 @@ const Navbar = () => {
       location.pathname === path
     };
       
-    console.log(isActive)
-
-    const changeLanguage = (lng) => {
+    const changeLanguage = async (lng) => {
+      // Muda o idioma da interface (i18n)
       i18n.changeLanguage(lng);
       localStorage.setItem("language", lng);
       setCurrentLanguage(lng);
-    
-      const currentPath = location.pathname;
+
+      // Muda o idioma dos posts
+      await changePostLanguage(lng);
+      
+      // Resto do código de navegação
+      const currentPath = location.pathname.replace(/^\/(en|pt|es|fr|de|it)/, '');
       const pathSegments = currentPath.split('/').filter(Boolean);
     
-      // Remove o idioma atual do início do path (se existir)
-      if (pathSegments[0] && /^(en|pt|es|fr|de|it)$/.test(pathSegments[0])) {
-        pathSegments.shift();
-      }
-    
-      // Se não houver segmentos após remover o idioma, redireciona para home
-      if (pathSegments.length === 0) {
-        navigate(`/${lng}`);
-        return;
-      }
-    
-      // Traduz o primeiro segmento do path (a rota principal)
-      const currentRoute = pathSegments[0];
-      for (const [route, translations] of Object.entries(routeMap)) {
-        if (Object.values(translations).includes(currentRoute)) {
-          pathSegments[0] = translations[lng];
-          break;
+      if (pathSegments.length > 0) {
+        const currentRoute = pathSegments[0];
+
+        for (const route in routeMap) {
+          if (routeMap[route].en === currentRoute ||
+            routeMap[route].pt === currentRoute ||
+            routeMap[route].es === currentRoute ||
+            routeMap[route].fr === currentRoute ||
+            routeMap[route].de === currentRoute ||
+            routeMap[route].it === currentRoute
+          ) {
+            pathSegments[0] = routeMap[route][lng];
+            break;
+          }
         }
       }
-    
+      
       // Constrói o novo path com o idioma e os segmentos traduzidos
-      const newPath = `/${lng}/${pathSegments.join('/')}`;
-      navigate(newPath);
+      const newPath = pathSegments.length > 0 ? `/${pathSegments.join('/')}` : '';
+      navigate(`/${lng}${newPath}/`);
     
       // Recarrega a página se estiver no blog
-      if (pathSegments.includes('blog')) {
-        window.location.reload();
-      }
+      // if (pathSegments.includes('blog')) {
+      //   window.location.reload();
+      // }
     };
     
     
-
-  const languages = [
-    { code: 'en', label: 'ENG', flag: 'https://cdn-icons-png.flaticon.com/256/555/555417.png' },
-    { code: 'pt', label: 'PT', flag: 'https://cdn-icons-png.flaticon.com/256/321/321256.png' },
-    { code: 'es', label: 'ES', flag: 'https://cdn-icons-png.flaticon.com/256/330/330557.png' },
-    { code: 'fr', label: 'FR', flag: 'https://cdn-icons-png.flaticon.com/256/330/330490.png' },
-    { code: 'de', label: 'DE', flag: 'https://cdn-icons-png.flaticon.com/256/330/330523.png' },
-    { code: 'it', label: 'IT', flag: 'https://cdn-icons-png.flaticon.com/256/10948/10948379.png' }
-  ];
 
   return (
     <nav className="bg-blackBg sticky z-[100] w-full font-bold text-white p-4 uppercase ">

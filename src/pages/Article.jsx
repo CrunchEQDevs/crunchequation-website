@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Article = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { slug } = useParams();
   const { posts, images, authors, language } = usePosts();
   const [post, setPost] = useState(null);
@@ -87,42 +87,17 @@ const Article = () => {
     }
   }, [slug, posts, language, post, navigate, t]);
 
-  // Adicione um useEffect para lidar com a mudança de idioma
-  useEffect(() => {
-    const handleLanguageChange = () => {
-      const translatedPost = posts.find(p => p.slug === slug);
-      if (translatedPost) {
-        setPost(translatedPost);
-        const imageUrl = translatedPost.yoast_head_json?.og_image?.[0]?.url;
-        setCurrentImage(imageUrl);
-        const currentPath = window.location.pathname;
-        const newPath = currentPath.replace(slug, translatedPost.slug);
-        navigate(newPath);
-      } else {
-        // Se não houver tradução, busque o artigo em inglês
-        const fallbackPost = posts.find(p => p.slug === slug && p.language === 'en');
-        if (fallbackPost) {
-          setPost(fallbackPost);
-          const imageUrl = fallbackPost.yoast_head_json?.og_image?.[0]?.url;
-          setCurrentImage(imageUrl);
-          const currentPath = window.location.pathname;
-          const newPath = currentPath.replace(slug, fallbackPost.slug);
-          navigate(newPath);
-        }
-      }
-    };
-
-    handleLanguageChange();
-  }, [i18n.language]);
-
   if (!post) {
     return null;
   }
 
-  const authorPost = (postAuthorId) => {
-    if (!authors || !postAuthorId) return t('Unknown Author');
-    return authors[postAuthorId] || t('Unknown Author');
-  };
+  const authorPost = (authorPost) => {
+    const keys = Object.keys(authorPost);
+    const firstKey = keys[0];
+    const author = authors[firstKey];
+
+    return author
+  }
 
   const formattedDate = (postDate) => {
     const date = new Date(postDate);
@@ -143,8 +118,11 @@ const Article = () => {
     ];
 
     const month = namesMonth[date.getMonth()];
-    const day = date.getDate();
-    return `${day} ${t('de')} ${month} ${year}`;
+    const day = date.getDate()
+    
+    const dateString = `${day} de ${month} ${year}`
+
+    return dateString
   };
 
   return (
@@ -171,7 +149,7 @@ const Article = () => {
                   <div className="text-laranja">
                     <GiPlainCircle size={8} />
                   </div>
-                  <span>{authorPost(post.author)}</span>
+                  <span>{authorPost(authors)}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="text-laranja">
