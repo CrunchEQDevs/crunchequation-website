@@ -7,7 +7,8 @@ const routeMap = {
         es: 'servicios',
         fr: 'services', 
         de: 'dienstleistungen',
-        it: 'servizi'
+        it: 'servizi',
+        ar: 'الخدمات'
     },
     contact: {
         en: 'contacts',
@@ -15,7 +16,8 @@ const routeMap = {
         es: 'contactos',
         fr: 'contacts',
         de: 'kontakt',
-        it: 'contatti'
+        it: 'contatti',
+        ar: 'الاتصالات'
     },
     careers: {
         en: 'careers',
@@ -23,7 +25,8 @@ const routeMap = {
         es: 'carreras',
         fr: 'carrieres',
         de: 'karriere',
-        it: 'carriere'
+        it: 'carriere',
+        ar: 'الوظائف'
     },
     application: {
         en: 'application',
@@ -31,7 +34,8 @@ const routeMap = {
         es: 'aplicacion',
         fr: 'candidature',
         de: 'Stellenangebote',
-        it: 'candidatura'
+        it: 'candidatura',
+        ar: 'تقديم-طلب'
     },
     blog: {
         en: 'blog',
@@ -39,7 +43,8 @@ const routeMap = {
         es: 'blog',
         fr: 'blog',
         de: 'blog',
-        it: 'blog'
+        it: 'blog',
+        ar: 'المدونة'
     }
 };
 

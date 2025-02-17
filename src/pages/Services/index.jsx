@@ -6,7 +6,7 @@ import CardsCS from "../../components/HorizontalCards/CardsCS";
 import Footer from "../../components/Footer";
 import SubPages from "./SubPages";
 import { useTranslation } from "react-i18next";
-import { servicesEN, servicesPT, servicesES, servicesFR, servicesDE, servicesIT } from "../../utils/ServicesInfo";
+import { servicesEN, servicesPT, servicesES, servicesFR, servicesDE, servicesIT, servicesAR } from "../../utils/ServicesInfo";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -30,6 +30,8 @@ export default function Services() {
         return servicesDE;
       case 'it':
         return servicesIT;
+      case 'ar':
+        return servicesAR;
       default:
         return servicesEN;
     }

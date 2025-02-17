@@ -55,6 +55,15 @@ import servicesIT from './i18n/it/services.json'
 import testimonialsIT from './i18n/it/testimonials.json'
 import urlsIT from './i18n/it/urls.json'
 
+// Arabic imports
+import careersAR from './i18n/ar/careers.json'
+import contactAR from './i18n/ar/contact.json'
+import footerAR from './i18n/ar/footer.json'
+import homeAR from './i18n/ar/home.json'
+import servicesAR from './i18n/ar/services.json'
+import testimonialsAR from './i18n/ar/testimonials.json'
+import urlsAR from './i18n/ar/urls.json'
+
 i18n
   .use(initReactI18next)
   .init({
@@ -124,6 +133,17 @@ i18n
           ...contactIT,
           ...testimonialsIT,
           ...urlsIT,
+        }
+      },
+      ar: {
+        translation: {
+          ...careersAR,
+          ...servicesAR,
+          ...footerAR,
+          ...homeAR,
+          ...contactAR,
+          ...testimonialsAR,
+          ...urlsAR,
         }
       }
     },

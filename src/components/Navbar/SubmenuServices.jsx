@@ -2,9 +2,10 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { IoChevronBack, IoCloseOutline } from "react-icons/io5";
 import { MdOutlineSquare } from "react-icons/md";
-import { servicesPT, servicesEN, servicesES, servicesFR, servicesDE, servicesIT } from '../../utils/ServicesInfo';
+import { servicesPT, servicesEN, servicesES, servicesFR, servicesDE, servicesIT, servicesAR } from '../../utils/ServicesInfo';
 import routeMap from '../../utils/RouteMap';
 import DropdownServices from './DropdownServices';
+import PropTypes from 'prop-types';
 
 const SubmenuServices = ({ setIsSubmenuServicesOpen }) => {
   const { i18n } = useTranslation();
@@ -21,13 +22,22 @@ const SubmenuServices = ({ setIsSubmenuServicesOpen }) => {
         return servicesDE;
       case 'it':
         return servicesIT;
+      case 'ar':
+        return servicesAR;
       default:
         return servicesEN;
     }
   };
 
   const currentServices = getCurrentServices();
-  const lang = localStorage.getItem('language');
+  const lang = (() => {
+    try {
+      return localStorage.getItem('language') || 'en';
+    } catch (error) {
+      console.warn('localStorage não disponível:', error);
+      return 'en';
+    }
+  })();
   
   return (
     <>
@@ -73,6 +83,10 @@ const SubmenuServices = ({ setIsSubmenuServicesOpen }) => {
       <DropdownServices currentServices={currentServices} setIsSubmenuServicesOpen={setIsSubmenuServicesOpen} />
     </>
   );
+};
+
+SubmenuServices.propTypes = {
+  setIsSubmenuServicesOpen: PropTypes.func.isRequired,
 };
 
 export default SubmenuServices; 
