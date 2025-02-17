@@ -19,17 +19,16 @@ const App = () => {
     const navigate = useNavigate();
     
     useEffect(() => {
-      const currentPath = window.location.pathname.replace('/devit/site', ''); // Ajuste conforme a necessidade do basename
+      const currentPath = window.location.pathname.replace('/devit/site', '');
       const storedLang = localStorage.getItem('language');
-      const supportedLanguages = ['en', 'pt', 'es', 'fr', 'de', 'it']; 
+      const supportedLanguages = ['en', 'pt', 'es', 'fr', 'de', 'it', 'ar']; 
       
-      // Se a URL já tiver um idioma suportado, não redirecionar
-      const urlLang = currentPath.split('/')[1]; // Obtém o primeiro segmento da URL
+      const urlLang = currentPath.split('/')[1];
       
       if (!supportedLanguages.includes(urlLang)) {
-        const defaultLang = storedLang || 'en'; // Usa o idioma armazenado ou o padrão 'en'
+        const defaultLang = storedLang || 'en';
         localStorage.setItem('language', defaultLang);
-        navigate(`/${defaultLang}${currentPath}`); // Redireciona para o idioma correto
+        navigate(`/${defaultLang}${currentPath}`);
       }
     }, [navigate]);
     
@@ -43,14 +42,22 @@ const App = () => {
         <div>
           <Routes>
             <Route path="/" element={<Navigate to={`/${localStorage.getItem('language') || 'en'}/`} />} />
-            <Route path="/:lang" element={<Home />} />
-            <Route path={`/:lang/${services}/*`} element={<Services />} />
-            <Route path={`/:lang/${blog}/*`} element={<LastestNews />} />
-            <Route path={`/:lang/${careers}/*`} element={<Careers />} />
-            <Route path={`/:lang/${contact}/*`} element={<Contacts />} />
-            <Route path={`/:lang/${application}/*`} element={<Application />} />
-            <Route path={`/:lang/${application}/:slug/`} element={<JobDetails />} />
-            <Route path={`/:lang/${blog}/:slug/`} element={<Article />} />
+            <Route path="/:lang">
+              <Route index element={<Home />} />
+              <Route path={services} element={<Services />} />
+              <Route path={`${services}/*`} element={<Services />} />
+              <Route path={blog} element={<LastestNews />} />
+              <Route path={`${blog}/*`} element={<LastestNews />} />
+              <Route path={careers} element={<Careers />} />
+              <Route path={`${careers}/*`} element={<Careers />} />
+              <Route path={contact} element={<Contacts />} />
+              <Route path={`${contact}/*`} element={<Contacts />} />
+              <Route path={application} element={<Application />} />
+              <Route path={`${application}/*`} element={<Application />} />
+              <Route path={`${application}/:slug`} element={<JobDetails />} />
+              <Route path={`${blog}/:slug`} element={<Article />} />
+            </Route>
+            <Route path="*" element={<Navigate to={`/${localStorage.getItem('language') || 'en'}/`} />} />
           </Routes>
         </div>
       </Router>

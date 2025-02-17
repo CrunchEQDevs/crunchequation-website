@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footer/index.jsx';
 import Navbar from '../components/Navbar/index.jsx';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FiPaperclip, FiX } from 'react-icons/fi';
 import { FaRegCircleCheck } from "react-icons/fa6";
 import { useTranslation } from 'react-i18next';
 import routeMap from '../utils/RouteMap/index.jsx';
 
 const Application = () => {
-  const lang = localStorage.getItem('language') || 'en';
+  const navigate = useNavigate();
+  const location = useLocation();
   const { t } = useTranslation();
+  const lang = localStorage.getItem('language') || 'en';
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expandedDept, setExpandedDept] = useState(null); // Estado para controlar a expansão
@@ -20,6 +22,23 @@ const Application = () => {
     resume: '',
     applicationType: 'Open Application',
   });
+
+  useEffect(() => {
+    const pathParts = location.pathname.split('/');
+    if (pathParts.length >= 2) {
+      pathParts[1] = lang;
+      
+      if (pathParts[2] === routeMap.application[pathParts[1]]) {
+        pathParts[2] = routeMap.application[lang];
+      }
+
+      const newPath = pathParts.join('/');
+      
+      if (newPath !== location.pathname) {
+        navigate(newPath);
+      }
+    }
+  }, [lang, location.pathname, navigate]);
 
   const getJobSlugByLanguague = () => {
     const slugs = {

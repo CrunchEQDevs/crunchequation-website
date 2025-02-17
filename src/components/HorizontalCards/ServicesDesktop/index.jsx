@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { servicesEN, servicesPT, servicesES, servicesFR, servicesDE, servicesIT } from "../../../utils/ServicesInfo";
+import { servicesEN, servicesPT, servicesES, servicesFR, servicesDE, servicesIT, servicesAR } from "../../../utils/ServicesInfo";
 import routeMap from "../../../utils/RouteMap";
 
 export default function ServicesDesktop() {
@@ -10,10 +10,18 @@ const currentServices = i18n.language === 'pt' ? servicesPT :
                         i18n.language === 'es' ? servicesES : 
                         i18n.language === 'fr' ? servicesFR : 
                         i18n.language === 'de' ? servicesDE : 
-                        i18n.language === 'it' ? servicesIT :   
-
+                        i18n.language === 'it' ? servicesIT : 
+                        i18n.language === 'ar' ? servicesAR :
                         servicesEN;
 const lang = localStorage.getItem('language')
+
+// Função para garantir que o slug seja tratado corretamente
+const getServiceUrl = (service) => {
+    const baseUrl = `/${lang}/${routeMap.services[lang]}`;
+    // Codifica o slug se estiver em árabe
+    const slug = lang === 'ar' ? encodeURIComponent(service.slug) : service.slug;
+    return `${baseUrl}/${slug}`;
+};
 
 return (
     <div>
@@ -31,8 +39,11 @@ return (
                         <div className={`${i % 2 === 0 ? 'order-2' : 'order-1'} flex flex-col items-center xl:items-start justify-center gap-10 h-full w-full text-white xl:pl-0 px-10 xl:text-start text-center`}>
                             <h3 className="uppercase text-4xl lg:text-4xl w-full font-bold">{service.titulo}</h3>
                             <p className="text-xl 2xl:text-2xl w-full text-justify">{service.descricao}</p>
-                            <Link to={`/${lang}/${routeMap.services[lang]}/${service.slug}`} className="uppercase font-bold w-fit cursor-pointer text-laranja ">
-                            {t('mpReadMore')}
+                            <Link 
+                                to={getServiceUrl(service)} 
+                                className="uppercase font-bold w-fit cursor-pointer text-laranja"
+                            >
+                                {t('mpReadMore')}
                             </Link>
                         </div>
                     </div>

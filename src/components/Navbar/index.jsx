@@ -30,7 +30,8 @@ const Navbar = () => {
     { code: 'es', label: 'ES', flag: 'https://cdn-icons-png.flaticon.com/256/330/330557.png' },
     { code: 'fr', label: 'FR', flag: 'https://cdn-icons-png.flaticon.com/256/330/330490.png' },
     { code: 'de', label: 'DE', flag: 'https://cdn-icons-png.flaticon.com/256/330/330523.png' },
-    { code: 'it', label: 'IT', flag: 'https://cdn-icons-png.flaticon.com/256/10948/10948379.png' }
+    { code: 'it', label: 'IT', flag: 'https://cdn-icons-png.flaticon.com/256/10948/10948379.png' },
+    { code: 'ar', label: 'AR', flag: 'https://cdn-icons-png.flaticon.com/256/321/321258.png' },
   ];
 
 
@@ -77,8 +78,8 @@ const Navbar = () => {
 
     const navigate = useNavigate();
 
-    const isActive = (path) =>{
-      location.pathname === path
+    const isActive = (path) => {
+      return location.pathname === path;
     };
       
     const changeLanguage = async (lng) => {
@@ -90,21 +91,19 @@ const Navbar = () => {
       // Muda o idioma dos posts
       await changePostLanguage(lng);
       
-      // Resto do código de navegação
-      const currentPath = location.pathname.replace(/^\/(en|pt|es|fr|de|it)/, '');
+      // Pega o caminho atual e remove o prefixo do idioma
+      const currentPath = location.pathname.replace(/^\/(en|pt|es|fr|de|it|ar)/, '');
       const pathSegments = currentPath.split('/').filter(Boolean);
-    
+
       if (pathSegments.length > 0) {
         const currentRoute = pathSegments[0];
-
+        
+        // Procura a rota correspondente em routeMap
         for (const route in routeMap) {
-          if (routeMap[route].en === currentRoute ||
-            routeMap[route].pt === currentRoute ||
-            routeMap[route].es === currentRoute ||
-            routeMap[route].fr === currentRoute ||
-            routeMap[route].de === currentRoute ||
-            routeMap[route].it === currentRoute
-          ) {
+          const values = Object.values(routeMap[route]);
+          // Verifica se a rota atual corresponde a qualquer valor em qualquer idioma
+          if (values.includes(currentRoute) || values.includes(decodeURIComponent(currentRoute))) {
+            // Atualiza para a nova rota no idioma selecionado
             pathSegments[0] = routeMap[route][lng];
             break;
           }
@@ -114,11 +113,6 @@ const Navbar = () => {
       // Constrói o novo path com o idioma e os segmentos traduzidos
       const newPath = pathSegments.length > 0 ? `/${pathSegments.join('/')}` : '';
       navigate(`/${lng}${newPath}/`);
-    
-      // Recarrega a página se estiver no blog
-      // if (pathSegments.includes('blog')) {
-      //   window.location.reload();
-      // }
     };
     
     
