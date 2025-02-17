@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar/index.jsx';
 import Footer from '../components/Footer/index.jsx';
 import CardNews from '../components/CardNews';
@@ -6,8 +6,13 @@ import { usePosts } from '../utils/PostProvider';
 import SkeletonCardNews from '../components/CardNews/SkeletonCardNews';
 
 const LastestNews = () => {
-  const { posts, images, loading, error } = usePosts();
+  const { posts, images, loading, language } = usePosts();
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [language]);
+
   const postsPerPage = 6;
   const totalPages = Math.ceil(posts.length / postsPerPage);
 
@@ -38,6 +43,7 @@ const LastestNews = () => {
                 id={news.id}
                 image={images[news.id]}
                 title={news.title?.rendered.replace(/\u00A0/g, ' ')}
+                post={news}
                 slug={news.slug}
               />
             ))}
