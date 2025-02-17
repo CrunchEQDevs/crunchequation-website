@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Define a base para o diretório de subdomínio
+RewriteBase /devit/site/
+
+# Permite acesso direto a arquivos JSON
+RewriteCond %{REQUEST_URI} !\.json$
+
+# Verifica se o arquivo ou diretório não existe
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redireciona todas as requisições para index.html
+RewriteRule . /devit/site/index.html [L]

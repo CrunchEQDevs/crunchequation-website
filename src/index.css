@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h2{
+    @apply text-2xl font-bold lg:font-normal text-laranja lg:text-white text-center lg:text-start uppercase;
+  }
+}
+
+@font-face {
+  font-family: 'Mont';
+  src: url('/public/assets/fonts/Mont-Black.otf') format('opentype'); 
+}
+
+.font-mont{
+  font-family: 'Mont', sans-serif;
+}
+
+.shadow-text{
+  text-shadow: 1px 3px 2px rgba(0, 0, 0, 0.474);
+}
+
+.shadow-text2{
+  text-shadow: 1px 5px 2px rgba(0, 0, 0, 0.8);
+}
+
+
+.swiper-button-prev, .swiper-button-next{
+  color: #DB7C22 !important;
+}
+
+
+.swiper-button-prev{
+  left: 20px;
+}
+
+.swiper-button-next{
+  right: 20px;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.hoverFooterIcons{
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.hoverFooterIcons:hover{
+  color: #DB7C22;
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal{
+  bottom: 2px;
+}
+
+.swiper-pagination-bullet{
+  width: 12px;
+  height: 12px;
+}
+
+
+.swiper-pagination-bullet-active{
+  background-color: #DB7C22;
+}
+
+.lineline {
+  position:relative;
+  line-height: 95px;
+  font-size: 120px;
+  top: -92px;
+  left:0%;
+  font-weight:800;
+}
+
+.marquee-container {
+  width: 100%; 
+  background: linear-gradient(to right, #DC6129, #DB7C22); 
+}
+
+.teste {
+  display: inline-flex; 
+  align-items: center;
+  white-space: nowrap; 
+  gap: 10px;
+  animation: marquee 135s linear infinite; 
+}
+
+.teste p {
+  font-size: 1.8rem; 
+  font-weight: 900;
+  color: white; 
+  text-transform: uppercase; 
+  letter-spacing: 0.1rem; 
+  display: inline-block;
+}
+
+.h4-article {
+  color: #DB7C22;
+  font-size: 18px;
+  padding: 16px 0;
+  font-weight: 600;
+}
+
+.p-article{
+  text-align: justify;
+  text-wrap: pretty;
+  font-size: 16px;
+}
+
+.elementor-widget-container {
+  margin: 10px 0px;
+}
+
+.elementor-widget-container ul {
+  margin-left: 10px;
+}
+
+.li-article {
+  margin: 10px;
+  list-style: disc;
+  text-align: justify;
+  font-size: 16px;
+}
+
+.h5-article {
+  color: #DB7C22;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0); 
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+
+@media  (max-width: 768px) {
+
+  .lineline {
+
+    line-height: 48px;
+    font-size: 60px;
+    top: -45px;
+    left:1%;
+  }
+
+  .swiper-button-prev, .swiper-button-next{
+    top: 20%;
+  }
+
+  .li-article {
+    font-size: 14px;
+  }
+  
+  .p-article {
+    font-size: 14px;
+  }
+  
+}

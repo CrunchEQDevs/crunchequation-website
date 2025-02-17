@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Permite acesso direto a arquivos JSON
+RewriteCond %{REQUEST_URI} !\.json$
+
+# Verifica se o arquivo ou diretório não existe
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Verifica se a URL já contém um idioma suportado
+RewriteCond %{REQUEST_URI} !^/(en|pt)/
+
+# Redireciona todas as requisições para index.html
+RewriteRule ^(.*)$ /index.html [L]

@@ -1,0 +1,16 @@
+{ "phoneFooter": "Número de Teléfono",
+"privacyPolicyFooter": "Política de Privacidad",
+"termsAndConditionsFooter": "Términos y Condiciones",
+"newsletterFooter": "Suscríbete a Nuestro",
+"newsletter2Footer": "Boletín",
+"stayUpToDateFooter": "¿Quieres mantenerte al día?",
+"followCrunchFooter": "Sigue las noticias semanales de iGaming de Crunch",
+
+"subscribeNewsletter": "Suscribirse al Boletín",
+"enterEmail": "Ingresa tu correo electrónico",
+"subscribe": "Suscribirse",
+"sending": "Enviando...",
+"subscriptionSuccess": "¡Suscripción exitosa!",
+"subscriptionError": "Ocurrió un error. Por favor, inténtalo de nuevo.",
+"close": "Cerrar"
+}
