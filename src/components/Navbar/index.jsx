@@ -75,23 +75,34 @@ const Navbar = () => {
       localStorage.setItem("language", lng);
       setCurrentLanguage(lng);
     
-      const currentPath = location.pathname.replace(/^\/(en|pt|es|fr|de|it)/, '');
+      const currentPath = location.pathname;
       const pathSegments = currentPath.split('/').filter(Boolean);
     
-      if (pathSegments.length) {
-        const currentRoute = pathSegments[0];
-        for (const [route, translations] of Object.entries(routeMap)) {
-          if (Object.values(translations).includes(currentRoute)) {
-            pathSegments[0] = translations[lng === 'pt' ? 'pt-pt' : lng] || currentRoute;
-            break;
-          }
+      // Remove o idioma atual do início do path (se existir)
+      if (pathSegments[0] && /^(en|pt|es|fr|de|it)$/.test(pathSegments[0])) {
+        pathSegments.shift();
+      }
+    
+      // Se não houver segmentos após remover o idioma, redireciona para home
+      if (pathSegments.length === 0) {
+        navigate(`/${lng}`);
+        return;
+      }
+    
+      // Traduz o primeiro segmento do path (a rota principal)
+      const currentRoute = pathSegments[0];
+      for (const [route, translations] of Object.entries(routeMap)) {
+        if (Object.values(translations).includes(currentRoute)) {
+          pathSegments[0] = translations[lng];
+          break;
         }
       }
     
+      // Constrói o novo path com o idioma e os segmentos traduzidos
       const newPath = `/${lng}/${pathSegments.join('/')}`;
       navigate(newPath);
     
-      // Recarregar a página se estiver no blog
+      // Recarrega a página se estiver no blog
       if (pathSegments.includes('blog')) {
         window.location.reload();
       }
