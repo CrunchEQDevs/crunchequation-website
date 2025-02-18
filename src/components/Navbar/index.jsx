@@ -21,7 +21,7 @@ const Navbar = () => {
   const [isDesktopDropdownOpen, setIsDesktopDropdownOpen] = useState(false);
   const mobileLanguageDropdownRef = useRef(null);
   const desktopLanguageDropdownRef = useRef(null);
-  //const { setLanguage } = useTranslation();
+  const isRTL = i18n.language === 'ar';
 
   
   const languages = [
@@ -118,7 +118,7 @@ const Navbar = () => {
     
 
   return (
-    <nav className="bg-blackBg sticky z-[100] w-full font-bold text-white p-4 uppercase ">
+    <nav className={`bg-blackBg sticky z-[100] w-full font-bold text-white p-4 uppercase ${isRTL ? 'rtl' : ''}`}>
       <div className="container mx-auto flex md:justify-around justify-between items-center px-2">
         <div className="text-base font-bold w-full lg:w-fit">
           <Link to="/" className="flex w-fit items-center justify-center mx-auto md:ml-0 ">
@@ -160,7 +160,11 @@ const Navbar = () => {
                     currentLanguage === lang.code ? 'text-orange-500' : ''
                   }`}
                 >
-                  <img src={lang.flag} alt={`${lang.label} flag`} className="inline-block w-4 h-4 mr-2" />
+                  <img 
+                    src={lang.flag} 
+                    alt={`${lang.label} flag`} 
+                    className={`inline-block w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} 
+                  />
                   {lang.label}
                 </button>
               ))}
@@ -171,7 +175,13 @@ const Navbar = () => {
 
       <div 
       ref={menuRef}
-      className={`fixed top-0 left-0 h-full p-6 bg-pretoCinzento w-8/12 text-white z-50 transition-transform transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:hidden`}
+      className={`fixed ${isRTL ? 'right-0' : 'left-0'} top-0 h-full p-6 bg-pretoCinzento w-8/12 text-white z-50 transition-transform transform ${
+        isOpen 
+          ? 'translate-x-0' 
+          : isRTL 
+            ? 'translate-x-full'
+            : '-translate-x-full'
+      } lg:hidden`}
       >
         <div className="py-4 flex w-full justify-between items-center">
           <button
@@ -223,7 +233,11 @@ const Navbar = () => {
                       currentLanguage === lang.code ? 'text-orange-500' : ''
                     }`}
                   >
-                    <img src={lang.flag} alt={`${lang.label} flag`} className="inline-block w-4 h-4 mr-2" />
+                    <img 
+                      src={lang.flag} 
+                      alt={`${lang.label} flag`} 
+                      className={`inline-block w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} 
+                    />
                     {lang.label}
                   </button>
                 ))}

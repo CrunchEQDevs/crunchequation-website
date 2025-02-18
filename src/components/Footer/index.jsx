@@ -54,7 +54,7 @@ const NewsletterModal = ({ isOpen, setIsOpen }) => {
 
     return (
         <div className="fixed inset-0 bg-pretoQuase100 bg-opacity-50 z-50 flex items-center justify-center">
-            <div className="bg-pretoQuase100 border-2 border-laranja p-6 rounded-lg w-11/12 max-w-md relative">
+            <div className="bg-pretoQuase100 border-2  border-laranja p-6 rounded-lg w-11/12 max-w-md relative">
                 {/* Close button */}
                 <button 
                     onClick={() => setIsOpen(false)}

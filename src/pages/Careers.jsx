@@ -155,22 +155,22 @@ const Careers = () => {
 
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-2">{t('faq_career_title_1')}</h2>
-              <p className="text-gray-400">{t('faq_career_answer_1')}</p>
+              <p className={`text-gray-400 ${document.dir === 'rtl' ? 'text-right' : ''}`}>{t('faq_career_answer_1')}</p>
               <div className="border-t-8 border-laranja max-w-[50%] mt-4"></div>
             </div>
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-2">{t('faq_career_title_2')}</h2>
-              <p className="text-gray-400">{t('faq_career_answer_2')}</p>
+              <p className={`text-gray-400 ${document.dir === 'rtl' ? 'text-right' : ''}`}>{t('faq_career_answer_2')}</p>
               <div className="border-t-8 border-laranja max-w-[60%] mt-4"></div>
             </div>
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-2">{t('faq_career_title_3')}</h2>
-              <p className="text-gray-400">{t('faq_career_answer_3')}</p>
+              <p className={`text-gray-400 ${document.dir === 'rtl' ? 'text-right' : ''}`}>{t('faq_career_answer_3')}</p>
               <div className="border-t-8 border-laranja max-w-[70%] mt-4"></div>
             </div>
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-2">{t('faq_career_title_4')}</h2>
-              <p className="text-gray-400">{t('faq_career_answer_4')}</p>
+              <p className={`text-gray-400 ${document.dir === 'rtl' ? 'text-right' : ''}`}>{t('faq_career_answer_4')}</p>
               <div className="border-t-8 border-laranja max-w-[90%] mt-4"></div>
             </div>
           </div>

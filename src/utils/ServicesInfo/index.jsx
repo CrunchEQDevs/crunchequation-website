@@ -4033,7 +4033,7 @@ export const servicesAR = [
   {
     id: 1,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/squareCS.webp",
-    slug: "دعم-العملاء",
+    slug: "customer-Support",
     titulo: "دعم العملاء",
     descricao: "تبدأ خدمة دعم العملاء لدينا بالتزام بتقديم حلول سريعة وفعالة. من خلال فهم الاحتياجات والأهداف المحددة لكل عميل، نقوم بتخصيص دعمنا لضمان أعلى مستوى من الرضا.",
     link: "#",
@@ -4074,7 +4074,7 @@ export const servicesAR = [
   {
     id: 2,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/risks1.webp",
-    slug: "إدارة-المخاطر",
+    slug: "risk-management", 
     titulo: "إدارة المخاطر",
     descricao: "تم تصميم خدمات إدارة المخاطر لدينا لتعزيز عملياتك من خلال تحديد وتقييم والسيطرة على المخاطر المختلفة. نقوم بتخصيص استراتيجياتنا لملف المخاطر الفريد الخاص بك، مما يضمن التخفيف الاستباقي والامتثال.",
     link: "#",
@@ -4115,7 +4115,7 @@ export const servicesAR = [
   {
     id: 3,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/affiliation.webp",
-    slug: "تسويق-الشركاء",
+    slug: "affiliation",
     titulo: "تسويق الشركاء",
     descricao: "نبدأ بتحليل شامل للأعمال وننشئ استراتيجيات مخصصة تشمل توظيف الشركاء، أنظمة التتبع، إدارة الحملات، وتحليلات الأداء. تساعد مقاربتنا الديناميكية على زيادة الإيرادات وتعزيز الاحتفاظ بالعملاء.",
     link: "#",
@@ -4156,7 +4156,7 @@ export const servicesAR = [
   {
     id: 4,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/crm.webp",
-    slug: "إدارة-علاقات-العملاء",
+    slug: "crm", 
     titulo: "إدارة علاقات العملاء",
     descricao: "تحسن خدمات إدارة علاقات العملاء (CRM) عمليات المقامرة عبر الإنترنت من خلال استراتيجيات مخصصة للاحتفاظ بالعملاء وزيادة رضاهم.",
     link: "#",
@@ -4193,7 +4193,7 @@ export const servicesAR = [
   {
     id: 5,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/payments.webp",
-    slug: "المدفوعات",
+    slug: "payments",
     titulo: "المدفوعات",
     descricao: "يوفر فريق المدفوعات لدينا تجربة معاملات سلسة مصممة لتلبية احتياجات عملائنا ومستخدميهم.",
     link: "#",
@@ -4221,7 +4221,7 @@ export const servicesAR = [
   {
     id: 6,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/design.webp",
-    slug: "التصميم",
+    slug: "design",
     titulo: "التصميم",
     descricao: "تقدم خدمات التصميم لدينا في Crunch Equation محتوى مرئيًا جذابًا يعزز علامتك التجارية ويزيد التفاعل مع جمهورك.",
     link: "#",
@@ -4249,7 +4249,7 @@ export const servicesAR = [
   {
     id: 7,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/brandmanager.webp",
-    slug: "إدارة-العلامة-التجارية",
+    slug: "brand-management",
     titulo: "إدارة العلامة التجارية",
     descricao: "تدعم خدمات إدارة العلامة التجارية لدينا منصات المراهنة من خلال الأبحاث الشاملة، التواصل الاستراتيجي، الحملات التسويقية الإبداعية، تعزيز الوجود الرقمي، وتحديد الموقع السوقي الديناميكي.",
     link: "#",
@@ -4279,7 +4279,7 @@ export const servicesAR = [
   {
     id: 8,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/seo.webp",
-    slug: "تحسين-محركات-البحث",
+    slug: "seo",
     titulo: "تحسين محركات البحث (SEO)",
     descricao: "تساعد خدمات SEO لدينا على تعزيز تصنيف موقعك الإلكتروني في نتائج البحث، مما يجذب المزيد من الزوار ويزيد من العائدات.",
     link: "#",
@@ -4311,7 +4311,7 @@ export const servicesAR = [
   {
     id: 9,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/socialmedia.webp",
-    slug: "وسائل-التواصل-الاجتماعي",
+    slug: "social-media",
     titulo: "وسائل التواصل الاجتماعي",
     descricao: "نحن في CrunchEquation ندرك الدور الحيوي الذي تلعبه وسائل التواصل الاجتماعي في نجاح عمليات المقامرة عبر الإنترنت، حيث تعد منصة فعالة لبناء العلامة التجارية وزيادة التفاعل مع الجمهور وتحفيز النمو الإيرادي.",
     link: "#",
@@ -4342,7 +4342,7 @@ export const servicesAR = [
   {
     id: 10,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/cms.webp",
-    slug: "نظام-إدارة-المحتوى",
+    slug: "cms", 
     titulo: "نظام إدارة المحتوى (CMS)",
     descricao: "نوفر حلول CMS شاملة مصممة لتلبية احتياجاتك، مما يسهل تنظيم المحتوى الرقمي وجعله متاحًا بفعالية.",
     link: "#",
@@ -4373,7 +4373,7 @@ export const servicesAR = [
   {
     id: 11,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/kyc.webp",
-    slug: "اعرف-عميلك",
+    slug: "kyc", 
     titulo: "اعرف عميلك (KYC)",
     descricao: "تقدم خدماتنا الخاصة بنظام اعرف عميلك (KYC) حلولاً مخصصة لضمان الامتثال التنظيمي والأمان من خلال التحقق من هوية العملاء ومراقبة أنشطتهم للحماية من الاحتيال وغسيل الأموال.",
     link: "#",
@@ -4404,7 +4404,7 @@ export const servicesAR = [
   {
     id: 12,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/vip.webp",
-    slug: "إدارة-كبار-العملاء",
+    slug: "vip",
     titulo: "إدارة كبار العملاء (VIP)",
     descricao: "تبدأ خدمات إدارة كبار العملاء لدينا بتوفير حلول مخصصة تلبي احتياجاتهم لضمان أعلى مستويات الرضا والولاء.",
     link: "#",
@@ -4435,7 +4435,7 @@ export const servicesAR = [
   {
     id: 13,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/software_mobile.webp",
-    slug: "تطوير-البرمجيات",
+    slug: "software-development",
     titulo: "تطوير البرمجيات",
     descricao: "تطوير البرمجيات هو عملية إنشاء تطبيقات تعمل على أتمتة وتحسين العمليات التجارية.",
     link: "#",
@@ -4464,7 +4464,7 @@ export const servicesAR = [
   {
     id: 14,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/web_mobile.webp",
-    slug: "تطوير-المواقع",
+    slug: "web-development",
     titulo: "تطوير المواقع",
     descricao: "يشير تطوير المواقع إلى إنشاء وصيانة مواقع وتطبيقات الويب، مع التركيز على تحسين تجربة المستخدم وتحقيق الأهداف التجارية.",
     link: "#",
@@ -4493,7 +4493,7 @@ export const servicesAR = [
   {
     id: 15,
     imagem: "https://crunchequation.com/devit/assets/sitecrunch/services/it_mobile.webp",
-    slug: "دعم-تقني",
+    slug: "it-support", 
     titulo: "الدعم التقني (IT Support)",
     descricao: "يشير الدعم التقني إلى المساعدة التقنية لحل المشكلات المتعلقة بالتكنولوجيا والبنية التحتية لتقنية المعلومات.",
     link: "#",

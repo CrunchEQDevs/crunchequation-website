@@ -27,12 +27,6 @@ const Testimonials = () => {
       testimonial: t('testimonial_fernando'),
     },
     {
-      name: 'Giovanni S.',
-      position: t('customer_service_agent'),
-      image: 'https://crunchequation.com/devit/assets/sitecrunch/people/giovanni.webp',
-      testimonial: t('testimonial_giovanni'),
-    },
-    {
       name: 'Rafaela M.',
       position: t('brand_manager'),
       image: 'https://crunchequation.com/devit/assets/sitecrunch/people/rafaela.webp',
@@ -73,12 +67,6 @@ const Testimonials = () => {
       position: t('customer_service_agent_1'),
       image: 'https://crunchequation.com/devit/assets/sitecrunch/people/daniel.webp',
       testimonial: t('testimonial_daniel'),
-    },
-    {
-      name: 'Guilherme B.',
-      position: t('customer_service_agent_1'),
-      image: 'https://crunchequation.com/devit/assets/sitecrunch/people/guilherme.webp',
-      testimonial: t('testimonial_guilherme'),
     },
     {
       name: 'Regis S.',
