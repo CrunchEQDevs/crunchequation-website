@@ -11,9 +11,18 @@ import './index.css';
 import { PostsProvider } from './utils/PostProvider/index.jsx';
 import Article from './pages/Article';
 import useTranslatedRoutes from './hooks/useTranslatatedRoutes.jsx';
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const { services, careers, application, contact, blog } = useTranslatedRoutes();
+  const { i18n } = useTranslation();
+
+  // Adicionar classe RTL ao body quando o idioma for árabe
+  useEffect(() => {
+    document.body.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = i18n.language;
+    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+  }, [i18n.language]);
 
   const LanguageRedirect = () => {
     const navigate = useNavigate();

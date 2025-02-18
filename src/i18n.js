@@ -152,6 +152,15 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    direction: {
+      ar: 'rtl',
+      en: 'ltr',
+      pt: 'ltr',
+      es: 'ltr',
+      fr: 'ltr',
+      de: 'ltr',
+      it: 'ltr'
+    }
   });
 
 export default i18n;

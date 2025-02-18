@@ -77,7 +77,7 @@ const Contacts = () => {
       <Navbar />
       <ContactsHero />
       <div className='bg-pretoQuase100 bg-no-repeat bg-cover relative after:absolute after:block after:w-full after:h-full justify-center flex items-center after:top-0 after:left-0 after:bg-black after:-z-10  w-full xl:py-16 '>
-        <div className='bg-pretoQuase100 w-11/12 xl:w-3/5 2xl:w-2/5 xl:p-10 px-5 py-10 relative justify-center z-40 flex flex-col'>
+        <div className='bg-pretoQuase100 w-11/12 xl:w-3/5 2xl:w-2/5 xl:p-10 px-5 py-10 relative justify-center z-20 flex flex-col'>
           <header className='flex flex-col gap-3 w-full text-white items-center text-center'>
             <h3 className='text-xl xl:text-3xl font-bold uppercase text-laranja '>{t("formContactTitle")}</h3>
             <p className='xl:text-lg w-full'>{t("formContactDescription")}</p>
